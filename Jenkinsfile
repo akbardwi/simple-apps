@@ -40,6 +40,12 @@ pipeline {
             }
         }
         
+        stage('Delivery') {
+            steps {
+                input message: 'Apakah sudah siap untuk di deploy ke production?', ok: 'Deploy Sekarang!'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 sh'''
